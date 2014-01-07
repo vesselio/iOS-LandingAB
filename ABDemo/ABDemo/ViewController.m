@@ -27,4 +27,17 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)emailSignUp:(id)sender {
+    
+    [VesselAB checkpointVisited:@"Sign Up"];
+    
+}
+- (IBAction)signUpWithFacebook:(id)sender {
+    [VesselAB checkpointVisited:@"Sign Up Facebook"];
+    
+}
+- (IBAction)signUpWithGoogle:(id)sender {
+    [VesselAB checkpointVisited:@"Sign Up Goolge"];
+}
+
 @end

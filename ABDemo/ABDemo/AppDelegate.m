@@ -2,9 +2,9 @@
 //  AppDelegate.m
 //  ABDemo
 //
-//  Created by Anupam Godbole on 8/22/13.
-//  Copyright (c) 2013 Vessel. All rights reserved.
+//  Copyright (c) 2014 Vessel. All rights reserved.
 //
+
 
 #import "AppDelegate.h"
 #import "ViewController.h"
@@ -20,8 +20,8 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    _splashScreen = [[SplashScreenViewController alloc] init];
-    self.window.rootViewController = self.splashScreen;
+    _splashScreen = [[SplashScreenViewController alloc] initWithNibName:@"SplashScreenViewController" bundle:nil];
+    [self.window addSubview:_splashScreen.view];
     [self.window makeKeyAndVisible];
     return YES;
 }

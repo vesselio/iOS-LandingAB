@@ -29,7 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     // Do any additional setup after loading the view from its nib.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(testChanged:) name:VesselABTestChangedNotification object:nil];
     [VesselAB getTestWithSuccessBlock:^ (NSString *testName, VesselABTestVariation variation) {
@@ -39,15 +39,22 @@
         } else if (variation == VesselABTestVariationB) {
             nibName = @"ViewControllerB";
         }
-        _viewController = [[ViewController alloc] initWithNibName:nibName bundle:nil];
-        ((AppDelegate*)[UIApplication sharedApplication].delegate).window.rootViewController = _viewController;
-        [self makeUIChanges];
+        [self loadView:@"ViewControllerA"];
     } failureBlock:^ {
+        [self loadView:@"ViewControllerB"];
     }];
 }
 
 - (void) testChanged:(NSNotification*)notification {
     [VesselAB reloadTest];
+    [self makeUIChanges];
+}
+
+
+- (void) loadView:(NSString *)nibName{
+    [self.view removeFromSuperview];
+    _viewController = [[ViewController alloc] initWithNibName:nibName bundle:nil];
+    ((AppDelegate*)[UIApplication sharedApplication].delegate).window.rootViewController = _viewController;
     [self makeUIChanges];
 }
 

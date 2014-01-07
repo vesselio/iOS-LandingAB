@@ -128,4 +128,14 @@ extern NSString *const VesselABTestLoadStatusKey;
  */
 + (void) discardAllSessions;
 
+/** Returns the user identifier set for the sessions and checkpoints.
+ */
++ (NSString*) userId;
+
+/** Sets a user identifier for the sessions and checkpoints.
+ 
+@param userId A string to be associated with sessions and checkpoints.
+ */
++ (void) setUserId:(NSString*)userId;
+
 @end
