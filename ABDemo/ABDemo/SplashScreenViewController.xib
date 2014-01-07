@@ -154,7 +154,7 @@
 						<int key="objectID">4</int>
 						<reference key="object" ref="218223877"/>
 						<array class="NSMutableArray" key="children">
-							<object class="IBNSLayoutConstraint" id="700928323">
+							<object class="IBNSLayoutConstraint" id="995273309">
 								<reference key="firstItem" ref="218223877"/>
 								<int key="firstAttribute">8</int>
 								<int key="relation">0</int>
@@ -171,7 +171,7 @@
 								<int key="contentType">1</int>
 								<bool key="placeholder">NO</bool>
 							</object>
-							<object class="IBNSLayoutConstraint" id="694240912">
+							<object class="IBNSLayoutConstraint" id="344852203">
 								<reference key="firstItem" ref="218223877"/>
 								<int key="firstAttribute">7</int>
 								<int key="relation">0</int>
@@ -203,12 +203,12 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">13</int>
-						<reference key="object" ref="694240912"/>
+						<reference key="object" ref="344852203"/>
 						<reference key="parent" ref="218223877"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">14</int>
-						<reference key="object" ref="700928323"/>
+						<reference key="object" ref="995273309"/>
 						<reference key="parent" ref="218223877"/>
 					</object>
 				</array>
@@ -229,8 +229,8 @@
 				<string key="14.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="4.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<array key="4.IBViewMetadataConstraints">
-					<reference ref="694240912"/>
-					<reference ref="700928323"/>
+					<reference ref="344852203"/>
+					<reference ref="995273309"/>
 				</array>
 				<boolean value="NO" key="4.IBViewMetadataTranslatesAutoresizingMaskIntoConstraints"/>
 			</dictionary>

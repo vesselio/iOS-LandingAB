@@ -19,6 +19,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    self.lblSubtitle.text = [VesselAB valueForVariationVariable:@"welcome_text" defaultValue:@"Let's get started"];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -27,11 +30,11 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)emailSignUp:(id)sender {
-    
+- (IBAction)signUpWithEmail:(id)sender {
     [VesselAB checkpointVisited:@"Sign Up"];
-    
+        
 }
+
 - (IBAction)signUpWithFacebook:(id)sender {
     [VesselAB checkpointVisited:@"Sign Up Facebook"];
     

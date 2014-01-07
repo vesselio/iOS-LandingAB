@@ -39,7 +39,7 @@
         } else if (variation == VesselABTestVariationB) {
             nibName = @"ViewControllerB";
         }
-        [self loadView:@"ViewControllerA"];
+        [self loadView:nibName];
     } failureBlock:^ {
         [self loadView:@"ViewControllerB"];
     }];
@@ -47,7 +47,6 @@
 
 - (void) testChanged:(NSNotification*)notification {
     [VesselAB reloadTest];
-    [self makeUIChanges];
 }
 
 
@@ -55,11 +54,6 @@
     [self.view removeFromSuperview];
     _viewController = [[ViewController alloc] initWithNibName:nibName bundle:nil];
     ((AppDelegate*)[UIApplication sharedApplication].delegate).window.rootViewController = _viewController;
-    [self makeUIChanges];
-}
-
-- (void) makeUIChanges {
-    _viewController.lblSubtitle.text = [VesselAB valueForVariationVariable:@"welcome_text" defaultValue:@"Let's get started"];
 }
 
 - (void)didReceiveMemoryWarning
