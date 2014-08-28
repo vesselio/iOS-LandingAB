@@ -1,8 +1,8 @@
 //
 //  VesselAB.h
-//  Vessel
-//
-//  Copyright (c) 2013 Vessel. All rights reserved.
+//  Vessel Framework Version 1.1
+// 
+//  Copyright (c) 2014 Vessel. All rights reserved.
 //
 
 
@@ -23,47 +23,25 @@ typedef NS_ENUM(NSInteger, VesselABTestVariation) {
     VesselABTestVariationE,
 };
 
-/** The current Vessel AB test status has one of the values from VesselABTestStatus enumeration.
+
+/** The Vessel AB test status has one of the values from VesselABTestStatus enumeration.
  */
 typedef NS_ENUM(NSInteger, VesselABTestStatus) {
     /** Test not loaded yet */
-    VesselABTestNotInitiated = 0,
+    VesselABTestNotActive = 0,
     /** Test is in the process of loading */
-    VesselABTestLoading,
-    /** Test is loaded */
-    VesselABTestLoaded,
-    /** Test isn't available */
-    VesselABTestNotAvailable
+    VesselABTestActive = 1,
 };
+
 
 /** VesselABTestChangedNotification is posted when a test parameters change on the server side.
  */
 extern NSString *const VesselABTestChangedNotification;
 
-/** The userInfo dictionary associated with the VesselABTestLoadStatusChangedNotification has the current AB test status which can be accessed by VesselABTestLoadStatusKey string.
- */
-extern NSString *const VesselABTestLoadStatusKey;
-
 
 /** The VesselAB class is used to access variation variables, report checkpoints and sessions.
  */
 @interface VesselAB : NSObject
-
-/** The variation returned by the Vessel server. The property has one of the values from the VesselABTestVariation enumeration.
- */
-@property (readonly, atomic) VesselABTestVariation variation;
-
-/** The current Vessel AB test status. The property has one of the values from the VesselABTestStatus enumeration.
- */
-@property (readonly, atomic) VesselABTestStatus testLoadStatus;
-
-/** Current loaded test name
- */
-@property (readonly, atomic) NSString *testName;
-
-/** Current loaded test ID
- */
-@property (readonly, atomic) NSNumber *testID;
 
 /** Returns a singleton that is an instance of VesselAB SDK.
  @return Singleton instance of class VesselAB.
@@ -72,41 +50,89 @@ extern NSString *const VesselABTestLoadStatusKey;
 
 /** Returns a variation returned by the Vessel server.
  
+ @param testName - Look up and load variation for given test.
  @param success This block is called when the test is retrieved successfully from the Vessel server.
  @param failure This block is called when the test fails to load.
  */
-+ (void) getTestWithSuccessBlock:(void (^)(NSString *testName, VesselABTestVariation variation))success failureBlock:(void (^)())failure;
++ (void) getVariationForTest:(NSString *)testName WithSuccessBlock:(void (^)(NSString *testName, VesselABTestVariation variation))success failureBlock:(void (^)())failure;
+
+/** Returns YES if test is active, else No
+ 
+@params testName - Check if test with given name is active
+**/
++ (BOOL) isTestActive:(NSString *)testName;
+
+
+/** Returns YES if test is available, else No
+ 
+ @params testName - Check if test with given name is available to run
+ **/
++ (BOOL) isTestAvailable:(NSString *)testName;
+
+
+/**
+ @param testName - Look and activate test with given name
+*/
++ (void) activateTest:(NSString *)testName;
+
 
 /** Returns the variation for a particular test name. If the test assigned to the device doesn't match testName then VesselABTestVariationUnknown is returned.
  @param testName variation assigned to the test
  */
 + (VesselABTestVariation) variationForTestName:(NSString*)testName;
 
-/** Returns the variation for a particular test ID. If the test assigned to the device doesn't match test ID then VesselABTestVariationUnknown is returned.
- @param testID variation assigned to the test
- */
-+ (VesselABTestVariation) variationForTestID:(int)testID;
 
-/** Forces the SDK to get the latest AB test parameters from Vessel.
- */
-+ (void) forceABTestUpdate;
-
-/** Loads the disk cached test into memory
- */
-+ (void) reloadTest;
-
-/** Returns the value associated with a variation variable. If there is none associated or the test failed to load then the defaultValue is returned.
+/** Returns the value associated with a given test variation variable. If there is none associated or the test failed to load then the defaultValue is returned.
  
- @param variationVariable The variation variable whose value is to the retrieved.
+ @param testName The test name from which variation variable needs to be retrieved.
+ @param variableKey The variableKey whose value is to the retrieved.
  @param defaultValue In case there is no variation variable named variationVariable or if the test failed to load then the defaultValue is returned.
  */
-+ (NSString*) valueForVariationVariable:(NSString*)variationVariable defaultValue:(NSString*)defaultValue;
++ (NSString*) fromTest:(NSString*)testName getVariableValueFor:(NSString*)variableKey defaultValue:(NSString *)defaultValue;
+
+
+/** Returns the assetUrl associated with a given test asset variation variable. If there is none associated or the test failed to load then the defaultValue is returned.
+ 
+ @param testName The test name from which variation variable needs to be retrieved.
+ @param variableKey The variableKey whose value is to the retrieved.
+ @param defaultValue In case there is no variation variable named variationVariable or if the test failed to load then the defaultValue is returned.
+ */
++ (NSString*) fromTest:(NSString*)testName getAssetUrl:(NSString*)variableKey defaultValue:(NSString *)defaultValue;
+
+/**
+ Get the image associated with a given test variation variable. If there is none associated or the test failed to load then the will execute failure block.
+*/
++(void) fromTest:(NSString*)testName getImageFor:(NSString*)variableKey success:(void (^)(UIImage *variationImage)) success failureBlock:(void (^)())failure;
+
+/** Reports a checkpoint to the Vessel server for given active test.
+ 
+ @param checkpointName The checkpoint to be reported.
+ @param testName The name of the test for which checkpoint will be reported.
+ */
++ (void) reportCheckPoint:(NSString*)checkpointName forTest:(NSString*)testName;
 
 /** Reports a checkpoint to the Vessel server
  
  @param checkpointName The checkpoint to be reported.
  */
-+ (void) checkpointVisited:(NSString*)checkpointName;
++ (void) reportCheckPoint:(NSString*)checkpointName;
+
+
+/** Reports a checkpoint to the Vessel server for given active test with metaData.
+ 
+ @param checkpointName The checkpoint to be reported.
+ @param testName The name of the test for which checkpoint will be reported.
+ @param metaData Extra meta data will be reported at this checkpoint
+ */
++ (void) reportCheckPoint:(NSString*)checkpointName forTest:(NSString*)testName with:(NSDictionary *) metaData;
+
+/** Reports a checkpoint to the Vessel server
+ 
+ @param checkpointName The checkpoint to be reported.
+ @param metaData Extra meta data will be reported at this checkpoint
+
+ */
++ (void) reportCheckPoint:(NSString*)checkpointName with:(NSDictionary *) metaData;
 
 /** Starts a new session.
  

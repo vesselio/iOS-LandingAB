@@ -5,24 +5,17 @@
 //  Copyright (c) 2014 Vessel. All rights reserved.
 //
 
-
 #import "AppDelegate.h"
-#import "ViewController.h"
 #import <Vessel/Vessel.h>
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    NSString *appSecret = @"Z2Q2VXliRU9EM29ZTDRUcUJlS0ZDaFgw";
-#warning Change the above app secret and the bundle identifier.
-    [Vessel initializeWithAppSecret:appSecret];
     
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    _splashScreen = [[SplashScreenViewController alloc] initWithNibName:@"SplashScreenViewController" bundle:nil];
-    [self.window addSubview:_splashScreen.view];
-    [self.window makeKeyAndVisible];
+#warning Change the above app secret and the bundle identifier.
+    Vessel *sharedInstance = [Vessel sharedInstance];
+    [sharedInstance initializeWithAppSecret:@"d3R6NWU2aWJkUFNDRkc5UjhmNDJwZ0Rz"];
     return YES;
 }
 
@@ -34,7 +27,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 

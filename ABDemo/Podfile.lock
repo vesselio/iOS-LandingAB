@@ -1,0 +1,10 @@
+PODS:
+  - ABTestingVessel (1.2)
+
+DEPENDENCIES:
+  - ABTestingVessel
+
+SPEC CHECKSUMS:
+  ABTestingVessel: ad6b8ee386dafc49ca3f57b189e71905ff733b51
+
+COCOAPODS: 0.33.1

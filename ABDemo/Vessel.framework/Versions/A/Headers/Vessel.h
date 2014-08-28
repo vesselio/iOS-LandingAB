@@ -1,8 +1,8 @@
 //
 //  Vessel.h
-//  Vessel
+//  Vessel Framework Version 1.1
 //
-//  Copyright (c) 2013 Vessel. All rights reserved.
+//  Copyright (c) 2014 Vessel. All rights reserved.
 //
 
 #import <Vessel/VesselAB.h>
@@ -16,12 +16,6 @@
  */
 @property (nonatomic, readonly) NSString *appSecret;
 
-/** The timeout interval, in seconds. If during a connection attempt the request remains idle for longer
- than the timeout interval, the request is considered to have timed out.
- The default timeout interval is 10 seconds.
- */
-@property (nonatomic) NSInteger timeoutInterval;
-
 
 /** Returns a singleton that is an instance of Vessel SDK.
  @return Singleton instance of class Vessel.
@@ -32,16 +26,23 @@
 /** Initializes Vessel SDK. This method should be called before calling any other Vessel SDK method.
  
  @param appSecret An app secret used to initialize the app.
- 
- @return Returns a BOOL value that indicates whether the initialization was successful.
 */
-+ (BOOL) initializeWithAppSecret:(NSString*)appSecret;
+- (void) initializeWithAppSecret:(NSString*)appSecret;
 
 
 /** The timeout interval, in seconds. If during a connection attempt the request remains idle for longer
  than the timeout interval, the request is considered to have timed out. 
  The default timeout interval is 10 seconds.
 */
-+ (void) setTimeoutInterval:(NSInteger)seconds;
+- (void) setTimeoutInterval:(NSInteger)seconds;
+
+
+/** The method allows you to set custom filter key and values. It will show A/B test to users who will given
+ set of filters.
+ 
+ @param filters - Valid NSDictionary containly filter and its values.
+
+*/
+- (void) setFilters:(NSDictionary *) filters;
 
 @end

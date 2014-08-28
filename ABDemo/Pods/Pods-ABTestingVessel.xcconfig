@@ -1,0 +1,2 @@
+PODS_ABTESTINGVESSEL_FRAMEWORK_SEARCH_PATHS = "$(PODS_ROOT)/ABTestingVessel"
+PODS_ABTESTINGVESSEL_OTHER_LDFLAGS = -lsqlite3 -framework SystemConfiguration -framework Vessel
