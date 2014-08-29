@@ -36,32 +36,22 @@
 // 1. First A/B test to decide if showing user guide upfront imporves overall registrations.
 -(void) runOnBoardingTest{
     
-    [VesselAB getVariationForTest:@"onboarding" WithSuccessBlock:^(NSString *testName, VesselABTestVariation variation) {
+    [VesselAB getVariationForTest:@"onboarding-test" WithSuccessBlock:^(NSString *testName, VesselABTestVariation variation) {
         
         // Variation A is our control i.e. default flow and in variation B - Introducing new user guide.
         if (variation == VesselABTestVariationA) {
-            [self showUserLogin];
+            [self goToView:@"GuideViewController"];
         }else{
             // Go to Guide View Controller.
-            [self goToView:@"GuideViewController"];
+            [self goToView:@"SocialEmailController"];
         }
         
     } failureBlock:^{
-        [self showUserLogin];
+       [self goToView:@"SocialEmailController"];
         
     }];
 }
 
-//2. Running second A/B test to decide if social login works better vs normal email login
-- (void) showUserLogin{
-    // 2. A/B test to decide if showing user guide upfront helps in registrations
-    [VesselAB getVariationForTest:@"" WithSuccessBlock:^(NSString *testName, VesselABTestVariation variation)
-    {
-         [self goToView:@"LoginViewController"];
-    } failureBlock:^{
-        [self goToView:@"SocialEmailController"];
-    }];
-  }
 
 
 - (void) goToView:(NSString *)viewIdentifier{

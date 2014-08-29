@@ -29,6 +29,7 @@
     [super viewDidLoad];
     [VesselAB reportCheckPoint:@"Inside User Guide"];
 	// Do any additional setup after loading the view.
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,5 +39,8 @@
 }
 
 
+- (IBAction)skipUserGuide:(id)sender {
+
+}
 
 @end
