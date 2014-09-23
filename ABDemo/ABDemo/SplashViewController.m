@@ -48,7 +48,6 @@
         
     } failureBlock:^{
        [self goToView:@"SocialEmailController"];
-        
     }];
 }
 

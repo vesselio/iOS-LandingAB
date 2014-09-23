@@ -55,39 +55,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This is your dummy user guide." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="275" translatesAutoresizingMaskIntoConstraints="NO" id="N9f-Je-qha">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="This is your dummy user guide." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="275" translatesAutoresizingMaskIntoConstraints="NO" id="N9f-Je-qha">
                                 <rect key="frame" x="23" y="2" width="275" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You are in onboarding A/B test. We are showing 50%  user a simple onboarding turorial  and for rest directly asking to sign up." lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="275" translatesAutoresizingMaskIntoConstraints="NO" id="5H5-GI-s4O">
-                                <rect key="frame" x="23" y="181" width="275" height="195"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are in onboarding A/B test. We are showing 50%  user a simple onboarding turorial  and for rest directly asking to sign up." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="320" translatesAutoresizingMaskIntoConstraints="NO" id="5H5-GI-s4O">
+                                <rect key="frame" x="0.0" y="315" width="320" height="165"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="165" id="Cl1-CC-mdo"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fCx-ro-dsm">
-                                <rect key="frame" x="37" y="384" width="246" height="55"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fCx-ro-dsm">
+                                <rect key="frame" x="37" y="189" width="246" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Skip &amp; Show Other Variation">
+                                <state key="normal" title="Click here (to report checkpoint)">
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="skipUserGuide:" destination="aYD-sJ-vJH" eventType="touchUpInside" id="x1u-iG-wgO"/>
-                                    <segue destination="dR0-yN-EIm" kind="push" identifier="gotoLogin" id="5sf-Li-Vgn"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="kuI-cO-DIz">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="kuI-cO-DIz">
                                 <rect key="frame" x="103" y="66" width="114" height="114"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5H5-GI-s4O" firstAttribute="centerX" secondItem="N9f-Je-qha" secondAttribute="centerX" id="MUu-dG-gUH"/>
+                            <constraint firstItem="5H5-GI-s4O" firstAttribute="centerX" secondItem="kuI-cO-DIz" secondAttribute="centerX" id="Pu2-ML-06R"/>
+                            <constraint firstAttribute="trailing" secondItem="5H5-GI-s4O" secondAttribute="trailing" id="Qkl-qD-YhT"/>
+                            <constraint firstItem="5H5-GI-s4O" firstAttribute="leading" secondItem="IyJ-vn-fus" secondAttribute="leading" id="Z5M-7s-btD"/>
+                            <constraint firstAttribute="bottom" secondItem="5H5-GI-s4O" secondAttribute="bottom" id="cpu-nu-wn0"/>
+                            <constraint firstItem="5H5-GI-s4O" firstAttribute="centerX" secondItem="fCx-ro-dsm" secondAttribute="centerX" id="d7Q-ez-u3F"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eru-v1-AHV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -106,18 +116,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome to Vessel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0L-xv-8dG">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Welcome to Vessel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0L-xv-8dG">
                                 <rect key="frame" x="35" y="120" width="250" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="f6t-Yb-BA7">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="f6t-Yb-BA7">
                                 <rect key="frame" x="103" y="5" width="114" height="114"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AYs-KC-uNb">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AYs-KC-uNb">
                                 <rect key="frame" x="35" y="163" width="250" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.15765072059999999" green="0.2095711015" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -131,7 +141,7 @@
                                     <action selector="signUpWithFacebook:" destination="dR0-yN-EIm" eventType="touchUpInside" id="KG8-bs-kEB"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9qE-D5-MhN">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9qE-D5-MhN">
                                 <rect key="frame" x="35" y="208" width="250" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -145,15 +155,29 @@
                                     <action selector="signUpWithGPlus:" destination="dR0-yN-EIm" eventType="touchUpInside" id="lfG-Js-LGn"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This is your dummy user login." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x0k-CS-Emj">
-                                <rect key="frame" x="23" y="418" width="275" height="48"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="You are in onboarding A/B test. We are showing 50%  user a simple onboarding turorial  and for rest directly asking to sign up." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="320" translatesAutoresizingMaskIntoConstraints="NO" id="lQo-IA-w8a">
+                                <rect key="frame" x="0.0" y="315" width="320" height="165"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.35747351360000001" green="0.6396484375" blue="0.13602022629999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="165" id="pNT-Sc-gFv"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lQo-IA-w8a" firstAttribute="centerX" secondItem="AYs-KC-uNb" secondAttribute="centerX" id="WCQ-XY-Y9I"/>
+                            <constraint firstItem="lQo-IA-w8a" firstAttribute="centerX" secondItem="9qE-D5-MhN" secondAttribute="centerX" id="aVd-Wv-PsI"/>
+                            <constraint firstItem="lQo-IA-w8a" firstAttribute="leading" secondItem="ryO-Ha-66o" secondAttribute="leading" id="cw7-ya-IBF"/>
+                            <constraint firstAttribute="trailing" secondItem="lQo-IA-w8a" secondAttribute="trailing" id="ega-UC-bdU"/>
+                            <constraint firstItem="lQo-IA-w8a" firstAttribute="top" secondItem="9qE-D5-MhN" secondAttribute="bottom" constant="72" id="fXD-I3-J9d"/>
+                            <constraint firstItem="lQo-IA-w8a" firstAttribute="centerX" secondItem="l0L-xv-8dG" secondAttribute="centerX" id="pke-JI-fR8"/>
+                            <constraint firstItem="lQo-IA-w8a" firstAttribute="centerX" secondItem="f6t-Yb-BA7" secondAttribute="centerX" id="u2O-dc-96V"/>
+                            <constraint firstAttribute="bottom" secondItem="lQo-IA-w8a" secondAttribute="bottom" id="w3O-tA-y9P"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="PoN-6R-lga"/>
                 </viewController>

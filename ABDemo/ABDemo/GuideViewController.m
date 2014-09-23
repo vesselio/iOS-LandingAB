@@ -40,7 +40,7 @@
 
 
 - (IBAction)skipUserGuide:(id)sender {
-
+    [VesselAB reportCheckPoint:@"tutorial_shown"];
 }
 
 @end
