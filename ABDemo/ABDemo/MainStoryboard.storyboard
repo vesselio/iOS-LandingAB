@@ -141,20 +141,6 @@
                                     <action selector="signUpWithFacebook:" destination="dR0-yN-EIm" eventType="touchUpInside" id="KG8-bs-kEB"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9qE-D5-MhN">
-                                <rect key="frame" x="35" y="208" width="250" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Login with Google Plus">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="signUpWithGPlus:" destination="dR0-yN-EIm" eventType="touchUpInside" id="lfG-Js-LGn"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="You are in onboarding A/B test. We are showing 50%  user a simple onboarding turorial  and for rest directly asking to sign up." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="320" translatesAutoresizingMaskIntoConstraints="NO" id="lQo-IA-w8a">
                                 <rect key="frame" x="0.0" y="315" width="320" height="165"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -170,10 +156,8 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="lQo-IA-w8a" firstAttribute="centerX" secondItem="AYs-KC-uNb" secondAttribute="centerX" id="WCQ-XY-Y9I"/>
-                            <constraint firstItem="lQo-IA-w8a" firstAttribute="centerX" secondItem="9qE-D5-MhN" secondAttribute="centerX" id="aVd-Wv-PsI"/>
                             <constraint firstItem="lQo-IA-w8a" firstAttribute="leading" secondItem="ryO-Ha-66o" secondAttribute="leading" id="cw7-ya-IBF"/>
                             <constraint firstAttribute="trailing" secondItem="lQo-IA-w8a" secondAttribute="trailing" id="ega-UC-bdU"/>
-                            <constraint firstItem="lQo-IA-w8a" firstAttribute="top" secondItem="9qE-D5-MhN" secondAttribute="bottom" constant="72" id="fXD-I3-J9d"/>
                             <constraint firstItem="lQo-IA-w8a" firstAttribute="centerX" secondItem="l0L-xv-8dG" secondAttribute="centerX" id="pke-JI-fR8"/>
                             <constraint firstItem="lQo-IA-w8a" firstAttribute="centerX" secondItem="f6t-Yb-BA7" secondAttribute="centerX" id="u2O-dc-96V"/>
                             <constraint firstAttribute="bottom" secondItem="lQo-IA-w8a" secondAttribute="bottom" id="w3O-tA-y9P"/>
